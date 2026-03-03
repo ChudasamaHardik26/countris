@@ -1,0 +1,20 @@
+import SearchBar from "./SearchBar";
+import SelectMenu from "./SelectMenu";
+import CountryList from "./CountryList";
+import { useContext, useState } from "react";
+import "../App.css";
+import { ThemeContext } from "../contexts/ThemeContext";
+   export default function Home() 
+   {
+     const [query,setQuery] = useState("");
+     const [isDark] = useContext(ThemeContext);
+    return (
+      <main className={isDark ? "dark" : ""}>
+        <div className="search-filter-container">
+          <SearchBar setQuery={setQuery} />
+          <SelectMenu SelectMenu />
+        </div>  
+          <CountryList query={query}/>
+      </main>
+  )
+}
